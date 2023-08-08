@@ -11,13 +11,14 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setError("");
     try {
       await logIn(email, password);
       alert("Successfully signed in!");
       navigate("/");
     } catch (err) {
       console.log(err);
-      setError(err.message)
+      setError(err.message);
     }
   };
   return (
@@ -33,7 +34,7 @@ const Login = () => {
           <div className="max-w-[450px] h-[600px] mx-auto bg-black/75 text-white">
             <div className="max-w-[320px] mx-auto py-16">
               <h1 className="text-3xl font-bold">Sign In</h1>
-              {error ? <p className="bg-red-400 p-3 mt-4" >{error}</p> : null}
+              {error ? <p className="bg-red-400 p-3 mt-4">{error}</p> : null}
               <form
                 onSubmit={handleLogin}
                 className="w-full flex flex-col py-4"
