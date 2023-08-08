@@ -16,7 +16,7 @@ const Signup = () => {
       navigate('/')
     } catch(err) {
       console.log(err)
-      alert("Sign up unsuccessful!")
+      alert("Email already in use.")
     }
   }
 
