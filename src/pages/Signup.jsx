@@ -5,6 +5,7 @@ import { UserAuth } from "../context/AuthContext";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const { user, signUp } = UserAuth();
   const navigate = useNavigate();
 
@@ -16,7 +17,7 @@ const Signup = () => {
       navigate('/')
     } catch(err) {
       console.log(err)
-      alert("Email already in use.")
+      setError(err.message)
     }
   }
 
@@ -33,6 +34,7 @@ const Signup = () => {
           <div className="max-w-[450px] h-[600px] mx-auto bg-black/75 text-white">
             <div className="max-w-[320px] mx-auto py-16">
               <h1 className="text-3xl font-bold">Sign Up</h1>
+              {error ? <p className="bg-red-400 p-3 mt-4" >{error}</p> : null}
               <form onSubmit={handleSignup} className="w-full flex flex-col py-4">
                 <input
                   value={email}
