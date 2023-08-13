@@ -6,6 +6,7 @@ import Signup from "./pages/Signup.jsx";
 import Login from "./pages/Login.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import Account from "./pages/Account.jsx";
+import Error from "./pages/Error.jsx";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path='/*' element={<Error />} />
         </Routes>
       </AuthContextProvider>
     </>
